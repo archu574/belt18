@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>display</title>
+  </head>
+  <body>
+    <a href="logout">Logout</a>
+    <a href="/dashboard">Go back to the main Dashboard</a>
+    {% for x in users %}
+    Name:<p>{{x.name}}</p>
+    Alias:<p>{{x.alias}}</p>
+    Email:<p>{{x.email}}</p>
+    <p>--------------------------------------------------------------------------------</p>
+    Total number of posts:
+    Total number of Likes:{{x.counts}}
+    {% endfor %}
+  </body>
+</html>

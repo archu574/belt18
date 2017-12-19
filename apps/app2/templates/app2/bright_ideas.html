@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>bright_ideas</title>
+  </head>
+  <style>
+    .eachidea{
+      display:block;
+      border: 2px solid black;
+      width:500px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <body>
+    <h1>Hi {{request.session.name}}!</h1>
+    <a href="logout">Logout</a>
+    <form class="" action="/dashboard/ideatyped" method="post">
+      {% csrf_token %}
+      <input type="text" name="ideatyped" value="type your idea here">
+      <input type="submit" name="idea" value="Idea!">
+    </form>
+
+      {% for x in ideaz %}
+      <div class="eachidea">
+      <form class="" action="/dashboard/namelink/{{x.userid}}" method="post">
+        <a href="/dashboard/namelink">{{x.userid}}</a></form> says:<input type="text" name="" value="{{x.idea}}">
+
+
+      <form class="" action="/dashboard/put_likes_indatabase/{{x.id}}" method="post">
+        <a href="/dashboard/put_likes_indatabase/{{x.id}}">Like</a>
+      </form>
+      <a href="/dashboard/wholikes">{{x.counts}} like this.</a>
+      <p></p>
+      <p></p>
+      <p></p>
+      </div>
+      {% endfor %}
+
+
+
+
+
+
+  </body>
+</html>
